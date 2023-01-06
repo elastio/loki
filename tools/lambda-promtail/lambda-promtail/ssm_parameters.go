@@ -48,6 +48,8 @@ func getParameters(parameterNames map[string]string) map[string]string {
 
 	sess := session.Must(session.NewSession())
 	ssmClient := ssm.New(sess)
+	
+	fmt.Printf("Requesting parameters: %v", names)
 
 	decryption := true
 	output, err := ssmClient.GetParameters(&ssm.GetParametersInput{
